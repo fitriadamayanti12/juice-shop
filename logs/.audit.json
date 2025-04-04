@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 2
+    },
+    "auditLog": "/home/fitriadamayanti/juice-shop/logs/.audit.json",
+    "files": [
+        {
+            "date": 1743737559737,
+            "name": "/home/fitriadamayanti/juice-shop/logs/access.log.2025-04-04",
+            "hash": "1cb68e5b7109c270376d5aee488fb03d"
+        }
+    ]
+}
