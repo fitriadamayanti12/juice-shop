@@ -10,6 +10,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: master
+      
       - name: ZAP Scan
         uses: zaproxy/action-full-scan@v0.12.0
         with:
@@ -19,3 +20,20 @@ jobs:
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
           artifact_name: report_html.html
+      
+      # Step to create reports directory if it doesn't exist and copy the reports there.
+      - name : Copy Reports to Reports Directory 
+        run : |
+          mkdir -p reports  # Create the reports directory if it doesn't exist.
+          cp report_html.html reports/  # Copy the HTML report to the reports directory.
+          cp report_json.json reports/  # Copy the JSON report to the reports directory.
+
+      # Uploading both JSON and HTML reports from the reports directory as artifacts.
+      - name : Upload Report Artifacts 
+        uses : actions/upload-artifact@v2 
+        with :
+            name : zap-reports 
+            path : |
+              reports/report_html.html  
+              reports/report_json.json  
+
