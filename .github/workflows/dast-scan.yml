@@ -18,4 +18,4 @@ jobs:
           target: 'http://192.168.8.115:3000/'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
-          artifact_name: zap_scan
+          artifact_name: report_html.html
