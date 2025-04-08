@@ -18,6 +18,7 @@ jobs:
           target: 'https://juice-shop-production-e00a.up.railway.app/'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
+          allow_issue_writing: false
           artifact_name: report_html.html
       
       # Step to create reports directory if it doesn't exist and copy the reports there.
