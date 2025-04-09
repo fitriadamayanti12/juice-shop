@@ -1,5 +1,7 @@
 name: DAST Scan
-on: [push]
+on:
+  release:
+    types: [created]
 
 jobs:
   zap_scan:
