@@ -21,8 +21,6 @@ name: Snyk Security
 on:
   push:
     branches: ["master" ]
-  pull_request:
-    branches: ["master"]
 
 permissions:
   contents: read
@@ -49,7 +47,7 @@ jobs:
 
         env:
           # This is where you will need to introduce the Snyk API token created with your Snyk account
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          SNYK_TOKEN: e7505707-d808-4ace-aac5-3d27a05fc1c5
 
         # Runs Snyk Code (SAST) analysis and uploads result into GitHub.
         # Use || true to not fail the pipeline
