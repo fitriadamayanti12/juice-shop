@@ -1,0 +1,49 @@
+# This is a basic workflow that is manually triggered
+
+name: Manual Vulnerability Management Workflow
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      zap_report_path:
+        description: 'Path to the ZAP report JSON file'
+        default: 'reports/zap_report.json'
+        required: true
+        type: string
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "process_vulnerabilities"
+  process_vulnerabilities:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checkout the repository to access the script and report
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      # Run the Python script with path to ZAP report as input parameter 
+      - name: Run vulnerability management script 
+        run: |
+          python script.py --zap-report ${{ inputs.zap_report_path }}
+        env:
+          THEHIVE_URL: ${{ secrets.THEHIVE_URL }}
+          THEHIVE_API_KEY: ${{ secrets.THEHIVE_API_KEY }}
+          DEPLOYMENT_BLOCKER_URL: ${{ secrets.DEPLOYMENT_BLOCKER_URL }}
