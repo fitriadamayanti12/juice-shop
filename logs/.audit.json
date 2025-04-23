@@ -6,9 +6,14 @@
     "auditLog": "/home/fitriadamayanti/juice-shop/logs/.audit.json",
     "files": [
         {
-            "date": 1743737559737,
-            "name": "/home/fitriadamayanti/juice-shop/logs/access.log.2025-04-04",
-            "hash": "1cb68e5b7109c270376d5aee488fb03d"
+            "date": 1744189826968,
+            "name": "/home/fitriadamayanti/juice-shop/logs/access.log.2025-04-09",
+            "hash": "e99e807e04df049df9f107c64d1e76cf"
+        },
+        {
+            "date": 1744255551402,
+            "name": "/home/fitriadamayanti/juice-shop/logs/access.log.2025-04-10",
+            "hash": "ac5f8099f211924a8158a6b9538683bf"
         }
     ]
 }
